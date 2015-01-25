@@ -27,8 +27,8 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => Yii::$app->name.' - Administration',
-                'brandUrl' => (['/admin']),
+                'brandLabel' => Yii::$app->name,
+                'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
@@ -36,13 +36,21 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Home', 'url' => ['index']],
-                    ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
+                    ['label' => 'Bus companies', 'url' => ['/admin/company']],
+                    ['label' => 'Tickets', 'url' => ['/admin/ticket']],
+                    ['label' => 'Routes', 'url' => ['/admin/route']],
+                    ['label' => 'Underlying data', 
+                     'items' => [
+                        [
+                         'label' => 'Cities', 
+                         'url' => ['/admin/city']
+                         ]
+                       ]
+                    ],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['login']] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
+                            'url' => ['/admin/default/logout'],
                             'linkOptions' => ['data-method' => 'post']],
                 ],
             ]);
