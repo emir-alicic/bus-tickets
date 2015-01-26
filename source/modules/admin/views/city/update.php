@@ -7,11 +7,10 @@ use yii\helpers\Html;
 
 $this->title = Yii::t('app', 'Update {modelClass}: ', [
     'modelClass' => 'City',
-]) . ' ' . $model->IDcity;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Cities'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->IDcity, 'url' => ['view', 'id' => $model->IDcity]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+]) . ' ' . $model->city;
+
 ?>
+
 <div class="city-update">
 
     <h1><?= Html::encode($this->title) ?></h1>

@@ -14,7 +14,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'city')->textInput(['maxlength' => 50]) ?>
 
-    <?= $form->field($model, 'active')->textInput() ?>
+    <?= //$form->field($model, 'active')->textInput() 
+        $model->formActiveDropDown($form); 
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

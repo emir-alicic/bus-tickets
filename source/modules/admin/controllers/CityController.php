@@ -9,11 +9,15 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use app\modules\admin\traits\ActiveCTrait;
+
 /**
  * CityController implements the CRUD actions for City model.
  */
 class CityController extends Controller
 {
+    use ActiveCTrait;
+
     public function behaviors()
     {
         return [
@@ -42,18 +46,6 @@ class CityController extends Controller
     }
 
     /**
-     * Displays a single City model.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
      * Creates a new City model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -63,7 +55,7 @@ class CityController extends Controller
         $model = new City();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDcity]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -82,7 +74,7 @@ class CityController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDcity]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,

@@ -48,7 +48,7 @@ AppAsset::register($this);
                        ]
                     ],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['login']] :
+                        ['label' => 'Login', 'url' => ['/admin/default/login']] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/admin/default/logout'],
                             'linkOptions' => ['data-method' => 'post']],
@@ -67,8 +67,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-            <p class="pull-right"><?= Yii::powered() ?></p>
+            <p class="pull-left">Author: Emir Aličić</p>
         </div>
     </footer>
 

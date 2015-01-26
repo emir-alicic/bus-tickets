@@ -3,6 +3,8 @@
 namespace app\modules\admin\models;
 
 use Yii;
+use app\modules\admin\traits\CreateTrait;
+use app\modules\admin\traits\ActiveTrait;
 
 /**
  * This is the model class for table "city".
@@ -19,6 +21,10 @@ class City extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+
+    use ActiveTrait;
+    use CreateTrait;
+
     public static function tableName()
     {
         return 'city';
@@ -30,6 +36,7 @@ class City extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['city', 'active'], 'required'],
             [['active'], 'integer'],
             [['city'], 'string', 'max' => 50]
         ];

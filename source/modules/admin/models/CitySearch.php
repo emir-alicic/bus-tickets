@@ -41,7 +41,7 @@ class CitySearch extends City
      */
     public function search($params)
     {
-        $query = City::find();
+        $query = City::find()->where('active!=3');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
