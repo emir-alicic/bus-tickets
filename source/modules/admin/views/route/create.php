@@ -9,8 +9,6 @@ use yii\helpers\Html;
 $this->title = Yii::t('app', 'Create {modelClass}', [
     'modelClass' => 'Route',
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Routes'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="route-create">
 

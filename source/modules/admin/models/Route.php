@@ -2,6 +2,10 @@
 
 namespace app\modules\admin\models;
 
+use app\modules\admin\traits\CreateTrait;
+use app\modules\admin\traits\ActiveTrait;
+use app\modules\admin\traits\RelationalTrait;
+
 use Yii;
 
 /**
@@ -21,6 +25,11 @@ class Route extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    
+    use activeTrait;
+    use createTrait;
+    use relationalTrait;
+    
     public static function tableName()
     {
         return 'route';
@@ -32,6 +41,7 @@ class Route extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['IDstationFrom', 'IDstationTo', 'active'], 'required'],
             [['IDstationFrom', 'IDstationTo', 'active'], 'integer']
         ];
     }
@@ -43,8 +53,8 @@ class Route extends \yii\db\ActiveRecord
     {
         return [
             'IDroute' => Yii::t('app', 'Idroute'),
-            'IDstationFrom' => Yii::t('app', 'Idstation From'),
-            'IDstationTo' => Yii::t('app', 'Idstation To'),
+            'IDstationFrom' => Yii::t('app', 'Starting point'),
+            'IDstationTo' => Yii::t('app', 'Destination'),
             'active' => Yii::t('app', 'Active'),
         ];
     }

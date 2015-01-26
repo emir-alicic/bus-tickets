@@ -40,7 +40,7 @@ class RouteSearch extends Route
      */
     public function search($params)
     {
-        $query = Route::find();
+        $query = Route::find()->where('active!=3');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

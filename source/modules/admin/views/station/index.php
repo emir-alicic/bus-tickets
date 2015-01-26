@@ -25,8 +25,8 @@ $this->title = Yii::t('app', 'Stations');
         'columns' => [
             [
             'class' => 'yii\grid\SerialColumn'],
-            $searchModel->gridRelationalColumn('IDcity', City::find()->where('active!=3')->all(), 'IDcity', 'city'),
             'station',
+            $searchModel->gridRelationalColumn('IDcity', City::find()->where('active!=3')->all(), 'IDcity', 'city'),
             $searchModel->gridActiveColumn(),
             $searchModel->actionColumn(),
         ],

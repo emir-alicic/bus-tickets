@@ -41,7 +41,7 @@ class StationSearch extends Station
      */
     public function search($params)
     {
-        $query = Station::find();
+        $query = Station::find()->where('active!=3');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

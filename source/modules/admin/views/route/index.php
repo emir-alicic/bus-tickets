@@ -3,22 +3,19 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+use app\modules\admin\models\Station;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\admin\models\RouteSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Routes');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="route-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
-        <?= Html::a(Yii::t('app', 'Create {modelClass}', [
-    'modelClass' => 'Route',
-]), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= $searchModel->createButton() ?>
     </p>
 
     <?= GridView::widget([
@@ -26,13 +23,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'IDroute',
-            'IDstationFrom',
-            'IDstationTo',
-            'active',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            $searchModel->gridRelationalColumn('IDstationFrom', Station::find()->all(), 'IDstation', 'station'),
+            $searchModel->gridRelationalColumn('IDstationTo', Station::find()->all(), 'IDstation', 'station'),
+            $searchModel->gridActiveColumn(),
+            $searchModel->actionColumn(),
         ],
     ]); ?>
 
