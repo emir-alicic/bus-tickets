@@ -39,6 +39,7 @@ AppAsset::register($this);
                     ['label' => 'Bus companies', 'url' => ['/admin/company']],
                     ['label' => 'Tickets', 'url' => ['/admin/ticket']],
                     ['label' => 'Routes', 'url' => ['/admin/route']],
+                    ['label' => 'Stations', 'url' => ['/admin/station']],
                     ['label' => 'Underlying data', 
                      'items' => [
                         [
